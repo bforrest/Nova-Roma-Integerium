@@ -46,19 +46,45 @@ namespace RomanNumeralKata
 			
 			for(int i = 0; i < suppliedValue.Length; i++)
 			{	
-				if( suppliedValue[i]  == 'i' )
+				
+				if(suppliedValue[i] == 'm')
 				{
-					sum += 1;
+					sum += 1000;
 				}
 				
 				if( suppliedValue[i] == 'v')
 				{
 					sum += 5;
 				}
+				
+				if( suppliedValue[i]  == 'i' )
+				{
+					if( nextCharacterIsV(i) )
+					{
+						sum += 4;
+						i += 1;
+					}
+					else
+					{
+						sum += 1;
+					}
+				}
+				
+
 			}
 			
 			if( sum > 0 )
 				parsedValue = sum;
+		}
+		
+		private bool nextCharacterIsV(int current)
+		{
+			if(current < suppliedValue.Length - 1)
+			{
+				if( suppliedValue[current + 1] == 'v')
+					return true;
+			}
+			return false;
 		}
 	}
 }
