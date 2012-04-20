@@ -18,38 +18,20 @@ using System.Linq;
 
 namespace RomanNumeralKata
 {
-	public class NumeralParser
+	public static class NumeralParser
 	{
-		private readonly string suppliedValue;
-		
-		private int? parsedValue;
-		
-		public NumeralParser (string source)
+		public static int? FromRomanNumeral(this string source)
 		{
-			suppliedValue = source.ToUpperInvariant();
-		}
-		
-		public int Value
-		{
-			get
-			{
-				if( !parsedValue.HasValue)
-					parse();
-				
-				return parsedValue.Value;
-			}
-		}
-		
-		private void parse()
-		{
+			int? parsedValue;
+			
 			int sum = 0;
 			
-			for(int i = 0; i < suppliedValue.Length; i++)
+			for(int i = 0; i < source.Length; i++)
 			{	
-				RomanNumeral current = (RomanNumeral)Enum.Parse(typeof(RomanNumeral), suppliedValue[i].ToString() );
+				RomanNumeral current = (RomanNumeral)Enum.Parse(typeof(RomanNumeral), source[i].ToString(), true );
 				
-				RomanNumeral next = (i + 1 < suppliedValue.Length) 
-					? (RomanNumeral)Enum.Parse(typeof(RomanNumeral), suppliedValue[i + 1].ToString() ) 
+				RomanNumeral next = (i + 1 < source.Length) 
+					? (RomanNumeral)Enum.Parse(typeof(RomanNumeral), source[i + 1].ToString(), true ) 
 						: RomanNumeral.Default;
 				
 				if( current < next )
@@ -65,6 +47,8 @@ namespace RomanNumeralKata
 			
 			if( sum > 0 )
 				parsedValue = sum;
+			
+			return parsedValue;
 		}
 	}
 }

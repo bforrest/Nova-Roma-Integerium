@@ -23,59 +23,49 @@ namespace RomanNumeralKata
 		[Test()]
 		public void I_Translates_To_One ()
 		{
-			var numeralParser = new NumeralParser("i");
-			
-			Assert.That(numeralParser.Value == 1);
+			Assert.That("i".FromRomanNumeral() == 1);
 		}
 		
 		[Test()]
 		public void II_Translates_To_Two()
-		{
-			var parser = new NumeralParser("ii");
-			
-			Assert.That(parser.Value == 2);
+		{	
+			Assert.That("ii".FromRomanNumeral() == 2);
 		}
 		
 		[Test()]
 		public void V_Translates_To_Five()
 		{
-			var parser = new NumeralParser("v");
-			Assert.That(parser.Value == 5);
+			Assert.That("v".FromRomanNumeral() == 5);
 		}
 		
 		[Test]
 		public void IV_Translates_To_Four()
 		{
-			var parser = new NumeralParser("iv");
-			Assert.That(parser.Value == 4);
+			Assert.That("iv".FromRomanNumeral() == 4);
 		}
 		
 		[Test]
 		public void M_Translates_To_1000()
 		{
-			var parser = new NumeralParser("m");
-			Assert.That(parser.Value == 1000);
+			Assert.That("m".FromRomanNumeral() == 1000);
 		}
 		
 		[Test]
 		public void VIII_Translates_To_8()
 		{
-			var parser = new NumeralParser("viii");
-			Assert.That(parser.Value == 8);
+			Assert.That("viii".FromRomanNumeral() == 8);
 		}
 		
 		[Test]
 		public void CDXLVIII_Translates_To_448()
 		{
-			var parser = new NumeralParser("CDXLVIII");
-			Assert.That(parser.Value == 448);
+			Assert.That("CDXLVIII".FromRomanNumeral() == 448);
 		}
 		
 		[Test]
 		public void MCMXCVIII_Translates_To_1998()
 		{
-			var parser = new NumeralParser("MCMXCVIII");
-			Assert.That(parser.Value == 1998);
+			Assert.That("MCMXCVIII".FromRomanNumeral() == 1998);
 		}
 	}
 }
