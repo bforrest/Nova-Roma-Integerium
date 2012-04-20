@@ -37,6 +37,7 @@
     <Compile Include="Main.cs" />
     <Compile Include="NumeralParser.cs" />
     <Compile Include="NumeralParserTests.cs" />
+    <Compile Include="RomanNumeral.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

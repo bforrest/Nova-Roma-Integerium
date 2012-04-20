@@ -26,7 +26,7 @@ namespace RomanNumeralKata
 		
 		public NumeralParser (string source)
 		{
-			suppliedValue = source.ToLowerInvariant();
+			suppliedValue = source.ToUpperInvariant();
 		}
 		
 		public int Value
@@ -46,45 +46,25 @@ namespace RomanNumeralKata
 			
 			for(int i = 0; i < suppliedValue.Length; i++)
 			{	
+				RomanNumeral current = (RomanNumeral)Enum.Parse(typeof(RomanNumeral), suppliedValue[i].ToString() );
 				
-				if(suppliedValue[i] == 'm')
+				RomanNumeral next = (i + 1 < suppliedValue.Length) 
+					? (RomanNumeral)Enum.Parse(typeof(RomanNumeral), suppliedValue[i + 1].ToString() ) 
+						: RomanNumeral.Default;
+				
+				if( current < next )
 				{
-					sum += 1000;
+					sum += next - current;
+					++i;
 				}
-				
-				if( suppliedValue[i] == 'v')
+				else
 				{
-					sum += 5;
+					sum += current;
 				}
-				
-				if( suppliedValue[i]  == 'i' )
-				{
-					if( nextCharacterIsV(i) )
-					{
-						sum += 4;
-						i += 1;
-					}
-					else
-					{
-						sum += 1;
-					}
-				}
-				
-
 			}
 			
 			if( sum > 0 )
 				parsedValue = sum;
-		}
-		
-		private bool nextCharacterIsV(int current)
-		{
-			if(current < suppliedValue.Length - 1)
-			{
-				if( suppliedValue[current + 1] == 'v')
-					return true;
-			}
-			return false;
 		}
 	}
 }
