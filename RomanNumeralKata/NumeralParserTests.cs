@@ -32,28 +32,34 @@ namespace RomanNumeralKata
 			Assert.That("ii".FromRomanNumeral() == 2);
 		}
 		
-		[Test()]
-		public void V_Translates_To_Five()
-		{
-			Assert.That("v".FromRomanNumeral() == 5);
-		}
-		
 		[Test]
 		public void IV_Translates_To_Four()
 		{
 			Assert.That("iv".FromRomanNumeral() == 4);
 		}
 		
-		[Test]
-		public void M_Translates_To_1000()
+		[Test()]
+		public void V_Translates_To_Five()
 		{
-			Assert.That("m".FromRomanNumeral() == 1000);
+			Assert.That("v".FromRomanNumeral() == 5);
 		}
-		
+			
 		[Test]
 		public void VIII_Translates_To_8()
 		{
 			Assert.That("viii".FromRomanNumeral() == 8);
+		}
+		
+		[Test]
+		public void XIV_Translates_To_Fourteen()
+		{
+			Assert.That("XIV".FromRomanNumeral() == 14);
+		}
+		
+		[Test]
+		public void M_Translates_To_1000()
+		{
+			Assert.That("m".FromRomanNumeral() == 1000);
 		}
 		
 		[Test]
@@ -67,5 +73,7 @@ namespace RomanNumeralKata
 		{
 			Assert.That("MCMXCVIII".FromRomanNumeral() == 1998);
 		}
+		
+		
 	}
 }
